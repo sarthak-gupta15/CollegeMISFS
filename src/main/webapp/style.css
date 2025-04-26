@@ -1,0 +1,46 @@
+@charset "UTF-8";
+*{
+    background-image: url("https://thumbs.dreamstime.com/b/hall-building-college-sunrise-63035568.jpg");
+    background-size: 100%;
+}
+body{
+    background-image: none;
+   text-decoration: none;
+
+}
+
+.main{
+   /* border: 5px solid whitesmoke; */
+
+   border-radius: 10px;
+   background-image: none;
+   text-decoration: none;
+    background-image: none;
+    background-color: black;
+    opacity: 0.6;
+    text-align: center;
+    color: azure;
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-top: 100px;
+    padding-bottom: 50px;
+    padding: 20px;
+}
+
+#main-heading{
+    text-decoration: none;
+    background-image: none;
+    
+    
+}
+
+ul, li, a{
+    text-decoration: none;
+    background-image: none;
+    color: azure;
+} 
+
+.sub-main{
+    text-decoration: none;
+    background-image: none;
+} 
