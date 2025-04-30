@@ -1,0 +1,56 @@
+*{
+    background-color: antiquewhite;
+}
+body{
+    background-image: none;
+   text-decoration: none;
+
+}
+.maindiv{
+    border: 2px solid rgb(200, 54, 54);
+    text-align: center;
+    padding-bottom: 50px;
+    background-image: none;
+   text-decoration: none;
+    background-color: black !important;
+    opacity: 0.8;
+    margin-top: 250px;
+    margin-left: 300px;
+    margin-right: 300px;
+}
+
+form{
+    background-color: black;
+}
+
+label, h1 ,input{
+    background: local;
+    color: aliceblue;
+
+}
+input{
+    background-color: white;
+    padding: 10px;
+}
+
+button{
+    padding: 15px;
+    border: 2px solid black;
+    border-radius: 20px;
+}
+button:hover{
+    background-color: rgb(59, 13, 13);
+    color: white;
+    border: 2px solid white;
+}
+table, td, th{
+    border: 2px solid rgb(243, 236, 236);
+    padding: 10px;
+    text-align: center;
+    margin-left: 30px;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    background-color: rgb(220, 159, 102);
+    color: rgb(17, 9, 9);
+
+}
