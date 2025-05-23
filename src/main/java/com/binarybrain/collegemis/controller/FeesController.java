@@ -6,6 +6,7 @@ import com.binarybrain.collegemis.utils.Utils;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -43,10 +44,8 @@ public FeesController()
         }
     }
 
-    public void updateFeesByStudentId(int studentId)
+    public void updateFeesByStudentId(int studentId, int paidFees)
     {
-        System.out.println("enter the amout you want to pay");
-        int paidFees = scNum.nextInt();
        String sqlQuery = "update fees set paidFees = paidFees+ ? , unPaidFees = unPaidFees - ? where studentId = ?";
 
         try {
@@ -62,7 +61,27 @@ public FeesController()
         }
 
     }
+    public ResultSet unpaidFees(String id)
+    {
+    	 String sqlQuery = "select unPaidFees, totalFees from fees where studentId = ?";
+    	 
+    	 
+    	 try {
+    		 PreparedStatement preparedStatement = con.prepareStatement(sqlQuery);
+    		 
+			preparedStatement.setInt(1, Integer.parseInt(id));
+			ResultSet resultSet = preparedStatement.executeQuery();
+			resultSet.next();
+//			System.out.println(resultSet.getString(1)+" "+resultSet.getString(2));
+			return resultSet;
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 
+    }
 
     public void createFeesTable()
     {

@@ -17,6 +17,7 @@ body{
     margin-top: 250px;
     margin-left: 300px;
     margin-right: 300px;
+    margin-bottom: 250px;
 }
 
 form{
@@ -28,9 +29,13 @@ label, h1 ,input{
     color: aliceblue;
 
 }
+label{
+    font-size: large;
+}
 input{
     background-color: white;
     padding: 10px;
+    color: rgb(88, 36, 36);
 }
 
 button{
@@ -47,7 +52,7 @@ table, td, th{
     border: 2px solid rgb(243, 236, 236);
     padding: 10px;
     text-align: center;
-    margin-left: 30px;
+    margin-left: 250px;
     margin-top: 100px;
     margin-bottom: 100px;
     background-color: rgb(220, 159, 102);

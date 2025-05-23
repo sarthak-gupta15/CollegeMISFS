@@ -14,13 +14,12 @@ import java.util.Scanner;
 public class GradesController extends Utils {
 
 //    static StudentController studentController = new StudentController();
-    public GradesController(Connection con)
+    public GradesController()
     {
         super(con);
-        this.con = con;
         createGradesTable();
     }
-    Connection con = null;
+    static Connection con = DBConnect.connectDB();
     static Scanner scNum = new Scanner(System.in);
     static Scanner scStr = new Scanner(System.in);
      static Grades grades = new Grades(1,1, Year.FIRST, Semester.SECOND, Exam_Type.REGULAR, 100, 75);
@@ -29,98 +28,28 @@ public class GradesController extends Utils {
 
     public static ArrayList<Grades> gradesData = new ArrayList(Arrays.asList(gradesArray));
 
-   public void createFeesRecord(int studentId )
+   public void createGradeRecord(Grades grades )
     {
-        int id=0;
-        if(true)
-        {
-            System.out.println("Student Id is not valid");
-            return;
-        }
-        System.out.println("enter the Year you're studying");
-        String yearInput = scStr.nextLine();
-        yearInput = yearInput.toUpperCase();
-        Year year = null;
-        switch (yearInput)
-        {
-            case "FIRST":
-                year = Year.FIRST;
-                break;
-                case "SECOND":
-                year = Year.SECOND;
-                break;
-                case "THIRD":
-                year = Year.THIRD;
-                break;
-            case "FOURTH":
-                year = Year.FOURTH;
-                break;
-        }
-        System.out.println("enter the semester you're studying");
-        String semesterInput = scStr.nextLine();
-        semesterInput = semesterInput.toUpperCase();
-        Semester semester = null;
-        switch (semesterInput)
-        {
-            case "FIRST":
-                semester = Semester.FIRST;
-                id=1;
-                break;
-                case "SECOND":
-                semester = Semester.SECOND;
-                    id=2;
-                break;
-                case "THIRD":
-                semester = Semester.THIRD;
-                    id=3;
-                break;
-                case "FOURTH":
-                semester = Semester.FOURTH;
-                id=4;
-                break;
-                case "FIFTH":
-                semester = Semester.FIFTH;
-                break;
-                case "SIXTH":
-                semester = Semester.SIXTH;
-                break;
-                case "SEVENTH":
-                semester = Semester.SEVENTH;
-                break;
-                case "EIGHTH":
-                semester = Semester.EIGHTH;
-                break;
-        }
-        System.out.println("enter the type of exam you're appearing for");
-        String examTypeInput = scStr.nextLine();
-        examTypeInput = examTypeInput.toUpperCase();
-        Exam_Type examType = null;
-        switch (examTypeInput)
-        {
-            case "REGULAR":
-                examType = Exam_Type.REGULAR;
-                break;
-                case "MAKEUP":
-                examType = Exam_Type.MAKEUP;
-                break;
-            case "BACK":
-                examType = Exam_Type.BACK;
-                break;
-        }
 
-        System.out.println("enter the total marks");
-        int totalMarks = scNum.nextInt();
+        
+        
+        Year year =grades.getYear();
+       
+        Semester semester = grades.getSemester();
+     
+        Exam_Type examType = grades.getExamType();
 
-        System.out.println("enter the marks obtained");
-        int obtainedMarks = scNum.nextInt();
+        int totalMarks = grades.getTotalMarks();
+
+        int obtainedMarks = grades.getObtainedMarks();
 
         try {
 
-            PreparedStatement Query = con.prepareStatement ( "insert into grades (StudentId, examtype, yearStudying, semester, totalMarks, obtainedMarks) values (?, ?, ?, ?, ?, ?)");
-            Query.setInt(1, studentId);
-            Query.setString(2, examTypeInput);
-            Query.setString(3, yearInput);
-            Query.setString(4, semesterInput);
+            PreparedStatement Query = con.prepareStatement ( "insert into grades (StudentId, examtype, yearStudying, semester, totalMarks, obtainMarks) values (?, ?, ?, ?, ?, ?)");
+            Query.setInt(1, grades.getStudentId());
+            Query.setString(2, examType.toString());
+            Query.setString(3, year.toString());
+            Query.setString(4, semester.toString());
             Query.setInt(5, totalMarks);
             Query.setFloat(6, obtainedMarks);
 

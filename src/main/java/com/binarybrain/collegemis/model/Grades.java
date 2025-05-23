@@ -7,7 +7,6 @@ import com.binarybrain.collegemis.utils.Year;
 public class Grades
 {
     private int studentId;
-    private int id;
     Year year;
     Semester semester;
     Exam_Type examType;
@@ -20,14 +19,6 @@ public class Grades
 
     public void setStudentId(int studentId) {
         this.studentId = studentId;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public Year getYear() {
@@ -74,7 +65,6 @@ public class Grades
     public Grades(int studentId,int id,  Year year,Semester semester,Exam_Type examType,int totalMarks,int obtainedMarks)
     {
         this.studentId=studentId;
-        this.id=id;
         this.year=year;
         this.semester=semester;
         this.examType=examType;
@@ -87,7 +77,6 @@ public class Grades
     public String toString() {
         return "Grades{" +
                 "studentId=" + studentId +
-                ", id=" + id +
                 ", year=" + year +
                 ", semester=" + semester +
                 ", examType=" + examType +

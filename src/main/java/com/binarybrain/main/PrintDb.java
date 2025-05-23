@@ -51,7 +51,7 @@ public class PrintDb extends HttpServlet {
 			
 			out.print("</table>");
 			out.print("</div>");
-			RequestDispatcher dispatcher = req.getRequestDispatcher("/empty.jsp");
+			RequestDispatcher dispatcher = req.getRequestDispatcher("/table.jsp");
 			dispatcher.include(req, resp);
 			
 		} catch (SQLException e) {

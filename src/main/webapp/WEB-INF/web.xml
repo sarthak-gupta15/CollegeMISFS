@@ -35,4 +35,31 @@
     <servlet-name>PrintDb</servlet-name>
     <url-pattern>/printdb</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>UpdateFees</servlet-name>
+    <servlet-class>com.binarybrain.main.UpdateFees</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateFees</servlet-name>
+    <url-pattern>/update-fees</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>TeacherForm</servlet-name>
+    <servlet-class>com.binarybrain.main.TeacherForm</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TeacherForm</servlet-name>
+    <url-pattern>/teacher-form</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+    <servlet-name>GradesForm</servlet-name>
+    <servlet-class>com.binarybrain.main.GradesForm</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GradesForm</servlet-name>
+    <url-pattern>/grades</url-pattern>
+  </servlet-mapping>
 </web-app>

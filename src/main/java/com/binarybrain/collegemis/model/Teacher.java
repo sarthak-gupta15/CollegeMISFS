@@ -6,22 +6,23 @@ import java.time.LocalDate;
 
 public class Teacher
 {
-    private int id;
-    String name;
-    Gender gender;
+    private String name;
+    private Gender gender;
 
-    LocalDate dateOfJoining;
-    int experience;
+    private LocalDate dateOfJoining;
+    private int experience;
+    
+    private String branch;
 
-    public int getId() {
-        return id;
-    }
+    public String getBranch() {
+		return branch;
+	}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	public void setBranch(String branch) {
+		this.branch = branch;
+	}
 
-    public String getName() {
+	public String getName() {
         return name;
     }
 
@@ -56,19 +57,21 @@ public class Teacher
 
 
 
-    public Teacher(int id, String name, Gender gender, LocalDate dateOfJoining, int experience) {
-        this.id = id;
+    public Teacher( String name, Gender gender, LocalDate dateOfJoining, int experience, String branch) {
+ 
         this.name = name;
         this.gender = gender;
         this.dateOfJoining=dateOfJoining;
+        this.branch = branch;
+        this.experience = experience;
     }
     public String toString() {
         return "Teacher{" +
-                "id=" + id +
                 ", name='" + name + '\'' +
                 ", gender=" + gender +
                 ", dateOfJoining=" + dateOfJoining +
                 ", experience=" + experience +
+                 ", branch=" + branch +
                 '}';
     }
 }

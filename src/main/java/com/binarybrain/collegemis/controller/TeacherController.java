@@ -1,4 +1,6 @@
 package com.binarybrain.collegemis.controller;
+import com.binarybrain.collegemis.model.Teacher;
+import com.binarybrain.collegemis.utils.DBConnect;
 import com.binarybrain.collegemis.utils.Gender;
 import com.binarybrain.collegemis.utils.Utils;
 
@@ -10,51 +12,29 @@ public class TeacherController extends Utils
 {
     Scanner scStr = new Scanner(System.in);
     Scanner scNum = new Scanner(System.in);
-    Connection con = null;
+    static Connection con =DBConnect.connectDB();
 
-    public TeacherController(Connection con) {
+    public TeacherController() {
         super(con);
         createTeacherTable(con);
-        this.con = con;
     }
 
-    public void createTeacherRecord() {
-        System.out.println("Enter name of the teacher:");
-        String name = scStr.nextLine();
+    public void createTeacherRecord(Teacher teacher) {
+        String name = teacher.getName();
 
-        System.out.println("Enter gender (MALE / FEMALE / OTHER):");
-        String genderStr = scStr.next();
-        genderStr = genderStr.toUpperCase();
-        Gender gender= null;
-        switch (genderStr)
-        {
-            case "MALE":
-                gender = Gender.MALE;
-                break;
-            case "FEMALE":
-                gender = Gender.FEMALE;
-                break;
-            case "OTHER":
-                gender = Gender.OTHER;
-                break;
-        }
+        
+        Gender gender= teacher.getGender();
+        LocalDate dateOfJoining = teacher.getDateOfJoining();
 
-        System.out.println("Enter the date of joining (yyyy-mm-dd):");
-        String dateStr = scNum.nextLine();
-        LocalDate dateOfJoining = LocalDate.parse(dateStr);
-
-        System.out.println("Enter years of experience:");
-        int experience = scNum.nextInt();
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter Branch :");
-        String branch = "";
-        branch = sc.nextLine();
+        
+        int experience = teacher.getExperience();
+        String branch = teacher.getBranch();
 
         try {
             PreparedStatement query = con.prepareStatement(
                     "insert into teacher (name, gender, date_of_joining, experience, branch) VALUES (?, ?, ?, ?,?)");
             query.setString(1, name);
-            query.setString(2, genderStr);
+            query.setString(2, gender.toString());
             query.setDate(3, java.sql.Date.valueOf(dateOfJoining));
             query.setInt(4, experience);
             query.setString(5, branch);

@@ -15,9 +15,9 @@
             <a href="StudentForm.jsp"><li>Create the record for the student</li></a>
             <a href="FeesForm.jsp"><li>Create fees record with Student Id</li></a>
             <a href="printdb.jsp"><li>Print Database</li></a>
-            <a href="#"><li>Update fees by student id</li></a>
-            <a href="#"><li>Create teacher Record</li></a>
-            <a href="#"><li>Add Grades for student</li></a>
+            <a href="updateFees.jsp"><li>Update fees by student id</li></a>
+            <a href="teacherForm.jsp"><li>Create teacher Record</li></a>
+            <a href="gradesform.jsp"><li>Add Grades for student</li></a>
            </ul>
         </div>
     </div>
